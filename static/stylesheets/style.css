@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to bottom, #fef3e2, #dcdcdc);
+    background: linear-gradient(to bottom, #000000, #333333); /* Black to Grey gradient background */
     font-family: 'Arial', sans-serif;
     text-align: center;
     margin: 0;
@@ -11,58 +11,65 @@ body {
 }
 
 .container {
-    max-width: 500px;
+    max-width: 1500px;
     margin: 20px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #20022c; /* Dark violet/purple background */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
+    border: 1px solid #4a005a; /* Dark purple border */
 }
 
 h1 {
     font-size: 1.8rem;
-    color: #111;
+    color: #ffffff; /* White text for contrast */
     margin-bottom: 20px;
     font-weight: bold;
+}
+
+h2, p {
+    font-size: 1.8rem;
+    color: #ffffff; /* White text for contrast */
+    margin-bottom: 20px;
 }
 
 .form-label {
     font-weight: bold;
     margin-bottom: 5px;
     display: block;
-    color: #555;
+    color: #e6e6e6; /* Light grey for form labels */
 }
 
 .form-control {
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #6a0d91; /* Violet border */
     border-radius: 3px;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
+    background-color: #000000; /* Dark background for inputs */
+    color: #ffffff; /* White text in inputs */
 }
 
 .form-control:focus {
-    border-color: #e47911;
+    border-color: #9b2c77; /* Lighter violet border on focus */
     outline: none;
-    box-shadow: 0 0 5px rgba(228, 121, 17, 0.5);
+    box-shadow: 0 0 5px rgba(155, 44, 119, 0.7); /* Violet glow on focus */
 }
 
 .btn-primary {
-    width: 12%;
+    width: 35%;
     padding: 12px;
     font-size: 1.1rem;
     border-radius: 3px;
-    background-color: #e47911;
-    color: #ffffff;
-    border: 1px solid #e47911;
+    background: linear-gradient(to right, #6a0d91, #9b2c77); /* Gradient from purple to violet */
+    color: #ffffff; /* White text */
+    border: 1px solid #9b2c77; /* Light violet border */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #c66400;
+    background: linear-gradient(to right, #9b2c77, #6a0d91); /* Reverse gradient on hover */
 }
-

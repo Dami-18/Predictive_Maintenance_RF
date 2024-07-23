@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/stylesheets/style.css">
     <title>PredecX</title>
 </head>
 <body>
     <div>
         <h2>Probability of machine failure is: </h2>
         <div>
-            {{ failure_prob * 100 }} %
+           {{ failure_prob * 100 }} %
         </div>
         <div>
             {% set has_failure = false %}
