@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>PredecX</title>
+</head>
+<body>
+    <div>
+        <div><h1>PredecX - The platform to predict machine failures and increse productivity by X times!</h1></div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Enter machine ID and company in following format</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="A125_Shine Manufacturers">
+        </div>
+        <form class="mb-3" action="/train">
+            <label for="exampleFormControlInput1" class="form-label">Upload CSV file for machine data</label>
+            <input type="file" name="file" class="form-control" id="exampleFormControlInput1">
+            <input type="submit" class="btn btn-primary" value="Upload file"></input>
+        </form>
+    </div>
+</body>
+</html>
