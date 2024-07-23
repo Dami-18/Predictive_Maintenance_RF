@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PredecX</title>
+</head>
+<body>
+    <div>
+        <h2>Probability of machine failure is: </h2>
+        <div>
+            {{failure_prob}}
+        </div>
+        <div>
+            {% for item, idx in failure_type_pred[0] %}
+              {% if item == 1 %}
+                <div><p>{{failure_types[idx]}}</p></div>
+              {% else %}
+                <div><p>Machine's probability of failure is low. No such preventive measures required</p></div>
+              {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

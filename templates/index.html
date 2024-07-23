@@ -13,7 +13,7 @@
             <label for="exampleFormControlInput1" class="form-label">Enter machine ID and company in following format</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="A125_Shine Manufacturers">
         </div>
-        <form class="mb-3" action="/train">
+        <form class="mb-3" action="/train" method="post" enctype="multipart/form-data">
             <label for="exampleFormControlInput1" class="form-label">Upload CSV file for machine data</label>
             <input type="file" name="file" class="form-control" id="exampleFormControlInput1">
             <input type="submit" class="btn btn-primary" value="Upload file"></input>
