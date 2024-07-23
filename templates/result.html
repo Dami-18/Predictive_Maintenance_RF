@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/stylesheets/style.css">
-    <title>PredecX</title>
+    <title>PredicX</title>
 </head>
 <body>
     <div>
         <h2>Probability of machine failure is: </h2>
         <div>
-           {{ failure_prob * 100 }} %
+            <p>{{ failure_prob * 100 }} %</p>
         </div>
         <div>
-            {% set has_failure = false %}
+            {% set ns = namespace(has_failure=false) %}
             {% for item in failure_type_pred[0] %}
               {% if item == 1 %}
-                {% set has_failure = true %}
+                {% set ns.has_failure = true %}
                 <div><p>{{ failure_types[loop.index0] }}</p></div>
               {% endif %}
             {% endfor %}
-            {% if not has_failure %}
+            {% if not ns.has_failure %}
               <div><p>Machine's probability of failure is low. No such preventive measures required</p></div>
             {% endif %}
         </div>
