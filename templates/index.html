@@ -3,22 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../static/stylesheets/style.css">
     <title>PredicX</title>
+    <style>
+        input[type="file"] {
+            background-color: #ffffff; 
+            padding: 5px;
+            border-radius: 6px;
+        }
+
+        input[type="file"]::file-selector-button {
+            background-color: #eb9c64; 
+            color: #353535;
+            padding: 0.375rem 0.75rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #e99356 !important; 
+        }
+    </style>
 </head>
 <body>
-    <div>
+    <div class="main-page">
         <div><h1>PredicX - The platform to predict machine failures and increase productivity by X times!</h1></div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Enter machine ID and company in following format</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="A125_Shine Manufacturers">
+        <div>
+            <form class="mb-3" action="/train" method="post" enctype="multipart/form-data">
+                <label for="exampleFormControlInput1" class="form-label">Upload CSV file for machine data to train the model</label>
+                <input type="file" name="file" class="form-control" id="exampleFormControlInput1">
+                <input type="submit" class="btn btn-primary" value="Upload file"></input>
+            </form>
         </div>
-        <form class="mb-3" action="/train" method="post" enctype="multipart/form-data">
-            <label for="exampleFormControlInput1" class="form-label">Upload CSV file for machine data</label>
-            <input type="file" name="file" class="form-control" id="exampleFormControlInput1">
-            <input type="submit" class="btn btn-primary" value="Upload file"></input>
-        </form>
     </div>
     
     
