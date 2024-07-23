@@ -9,16 +9,19 @@
     <div>
         <h2>Probability of machine failure is: </h2>
         <div>
-            {{failure_prob}}
+            {{ failure_prob * 100 }} %
         </div>
         <div>
-            {% for item, idx in failure_type_pred[0] %}
+            {% set has_failure = false %}
+            {% for item in failure_type_pred[0] %}
               {% if item == 1 %}
-                <div><p>{{failure_types[idx]}}</p></div>
-              {% else %}
-                <div><p>Machine's probability of failure is low. No such preventive measures required</p></div>
+                {% set has_failure = true %}
+                <div><p>{{ failure_types[loop.index0] }}</p></div>
               {% endif %}
             {% endfor %}
+            {% if not has_failure %}
+              <div><p>Machine's probability of failure is low. No such preventive measures required</p></div>
+            {% endif %}
         </div>
     </div>
 </body>
