@@ -7,6 +7,38 @@
     <title>PredecX</title>
 </head>
 <body>
-    
+    <div>
+        <form action="/predict" method="post">
+            <div class="mb-3">
+                <label for="air_temp" class="form-label">Air temperature (in Kelvin)</label>
+                <input type="text" class="form-control" id="air_temp" name="air_temp" placeholder="e.g. 290">
+              </div>
+              <div class="mb-3">
+                <label for="process_temp" class="form-label">Process temperature (in Kelvin)</label>
+                <input type="text" class="form-control" id="process_temp" name="process_temp" placeholder="e.g. 400">
+              </div>
+              <div class="mb-3">
+                <label for="rotational_speed" class="form-label">Rotational speed (in rpm)</label>
+                <input type="text" class="form-control" id="rotational_speed" name="rotational_speed" placeholder="e.g. 1400">
+              </div>
+              <div class="mb-3">
+                <label for="torque" class="form-label">Torque (in Nm)</label>
+                <input type="text" class="form-control" id="torque" name="torque" placeholder="e.g. 42.8">
+              </div>
+              <div class="mb-3">
+                <label for="tool_wear" class="form-label">Tool wear (min)</label>
+                <input type="text" class="form-control" id="tool_wear" name="tool_wear" placeholder="e.g. 9">
+              </div>
+              <div class="mb-3">
+                <label for="type" class="form-label">Quality of Machine</label>
+                <select class="form-select" id="type" name="type" aria-label="Default select example">
+                    <option selected>Low</option>
+                    <option value="1">Medium</option>
+                    <option value="2">High</option>
+                </select>
+              </div>
+              <div><input type="submit" class="btn btn-primary" value="Predict"></input></div>
+        </form>
+    </div>
 </body>
 </html>

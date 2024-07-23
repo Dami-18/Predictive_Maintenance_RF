@@ -37,7 +37,7 @@ def train():
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.10, shuffle=True, random_state=42)
 
         train_indices = x_train.index
-        test_indices = x_test.index
+        # test_indices = x_test.index
 
         model = RandomForestClassifier(random_state=42)
         model.fit(x_train, y_train.values.ravel())
@@ -47,9 +47,9 @@ def train():
         y_failure_type = df[y_cols_failure_type]
 
         x_train2 = x.loc[train_indices]
-        x_test2 = x.loc[test_indices]
+        # x_test2 = x.loc[test_indices]
         y_train2 = y_failure_type.loc[train_indices]
-        y_test2 = y_failure_type.loc[test_indices]
+        # y_test2 = y_failure_type.loc[test_indices]
 
         model2 = RandomForestClassifier(random_state=42)
         model2.fit(x_train2, y_train2)
@@ -63,7 +63,34 @@ def train():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    pass # Here we will write function which takes single data about machine's current state as input from frontend and then predict failure using model pickle file saved in previous route  
+    air_temp = request.form['air_temp']
+    process_temp = request.form['process_temp']
+    rotational_speed = request.form['rotational_speed']
+    torque = request.form['torque']
+    tool_wear = request.form['tool_wear']
+    type = request.form['type']
+
+    input_data = {
+        'Air temperature [K]': [float(air_temp)],
+        'Process temperature [K]': [float(process_temp)],
+        'Rotational speed [rpm]': [float(rotational_speed)],
+        'Torque [Nm]': [float(torque)],
+        'Tool wear [min]': [float(tool_wear)],
+        'Type_H': [1 if type == 'High' else 0],
+        'Type_L': [1 if type == 'Low' else 0],
+        'Type_M': [1 if type == 'Medium' else 0]
+    }
+
+    input_df = pd.DataFrame(input_data)
+    failure_prob_model = joblib.load("failure_prob.pkl")
+    failure_type_pred_model = joblib.load("model_failure_type.pkl")
+
+    probs = failure_prob_model.predict_proba(input_df)
+    failure_prob = probs[0][1]
+    failure_type_pred = failure_type_pred_model.predict(input_df)
+    failure_types = ['High probability of heat dissipation failure detected. Please adjust process or air temperature accordingly', 'High probability of overstrain failure detected. Please adjust parameters accordingly','High probability of power failure detected. Please adjust parameters accordingly', 'Random random failure detected', 'High probability of tool wear failure detected. Please adjust parameters accordingly']
+
+    return render_template('result.html',failure_prob=failure_prob, failure_type_pred=failure_type_pred, failure_types=failure_types)
 
 if __name__ == '__main__':
     app.run(debug=True)

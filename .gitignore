@@ -1,2 +1,4 @@
 .ipynb_checkpoints/
 __pycache__
+failure_prob.pkl
+model_failure_type.pkl
