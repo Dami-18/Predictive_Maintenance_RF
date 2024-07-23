@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 body {
-    background: linear-gradient(to bottom, #000000, #333333); /* Black to Grey gradient background */
+    background: linear-gradient(180deg, #f0d8a5, #F5ECD7); 
     font-family: 'Arial', sans-serif;
     text-align: center;
     margin: 0;
@@ -7,69 +10,78 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-.container {
-    max-width: 1500px;
-    margin: 20px;
-    padding: 20px;
-    background-color: #20022c; /* Dark violet/purple background */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
-    border: 1px solid #4a005a; /* Dark purple border */
+    min-height: 100vh;
 }
 
 h1 {
     font-size: 1.8rem;
-    color: #ffffff; /* White text for contrast */
-    margin-bottom: 20px;
+    color: black; 
+    margin-bottom: 40px;
     font-weight: bold;
+    font-family: "Outfit", sans-serif;
 }
 
 h2, p {
     font-size: 1.8rem;
-    color: #ffffff; /* White text for contrast */
-    margin-bottom: 20px;
+    color: #000000; 
+    margin-bottom: 30px;
+    font-family: "Poppins", sans-serif;
 }
 
 .form-label {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     display: block;
-    color: #e6e6e6; /* Light grey for form labels */
+    color: #000000; 
 }
 
-.form-control {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #6a0d91; /* Violet border */
-    border-radius: 3px;
+.main-page, .predict{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control, .form-select.custom-select {
+    margin-bottom: 30px;
+    padding: 11px;
+    border: 2px solid #eb9c64;
+    border-radius: 6px;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
-    background-color: #000000; /* Dark background for inputs */
-    color: #ffffff; /* White text in inputs */
+    background-color: #ffffff; 
+    color: #000000;
 }
 
-.form-control:focus {
-    border-color: #9b2c77; /* Lighter violet border on focus */
+.form-control:focus, .form-select.custom-select:focus {
+    border-color: #eb9c64;
     outline: none;
-    box-shadow: 0 0 5px rgba(155, 44, 119, 0.7); /* Violet glow on focus */
+    box-shadow: 0 0 7px rgba(231, 144, 63, 0.7); 
+}
+
+.data-input{
+    width: 60vw;
 }
 
 .btn-primary {
-    width: 35%;
-    padding: 12px;
+    width: 100%;
+    padding: 10px;
     font-size: 1.1rem;
-    border-radius: 3px;
-    background: linear-gradient(to right, #6a0d91, #9b2c77); /* Gradient from purple to violet */
-    color: #ffffff; /* White text */
-    border: 1px solid #9b2c77; /* Light violet border */
+    border-radius: 6px;
+    background: linear-gradient(to right, #eb9c64, #ff8789); 
+    color: #353535; 
+    border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(to right, #9b2c77, #6a0d91); /* Reverse gradient on hover */
+    background: linear-gradient(to left, #eb9c64, #ff8789);
+    color: #353535;
+}
+
+.btn-primary:active{
+    background: linear-gradient(to left, #eb9c64, #ff8789);
+    color: #353535;
 }
