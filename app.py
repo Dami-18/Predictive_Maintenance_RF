@@ -76,9 +76,9 @@ def predict():
         'Rotational speed [rpm]': [float(rotational_speed)],
         'Torque [Nm]': [float(torque)],
         'Tool wear [min]': [float(tool_wear)],
-        'Type_H': [1 if type == 'High' else 0],
-        'Type_L': [1 if type == 'Low' else 0],
-        'Type_M': [1 if type == 'Medium' else 0]
+        'Type_H': [1 if type.lower() == 'h' else 0],
+        'Type_L': [1 if type.lower() == 'l' else 0],
+        'Type_M': [1 if type.lower() == 'm' else 0]
     }
 
     input_df = pd.DataFrame(input_data)
