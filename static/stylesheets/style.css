@@ -35,11 +35,17 @@ h2, p {
     color: #000000; 
 }
 
-.main-page, .predict{
+.main-page, .predict, .form-body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.predict{row-gap: 0.1rem;}
+
+.mb-3{
+    width: 30%;
 }
 
 .form-control, .form-select.custom-select {
@@ -84,4 +90,9 @@ h2, p {
 .btn-primary:active{
     background: linear-gradient(to left, #eb9c64, #ff8789);
     color: #353535;
+}
+
+.sample{
+    width: 40%;
+    margin-top: 20px;
 }
