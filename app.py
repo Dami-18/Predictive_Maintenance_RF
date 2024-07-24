@@ -32,7 +32,7 @@ def train():
         y_cols = ['Failure']
         x = df[x_cols]
         y = df[y_cols]
-        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.10, shuffle=True, random_state=42)
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.15, shuffle=True, random_state=42)
 
         train_indices = x_train.index
         # test_indices = x_test.index
