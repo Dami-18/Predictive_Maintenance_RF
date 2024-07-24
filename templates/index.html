@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="../static/stylesheets/style.css">
     <title>PredicX</title>
     <style>
-        input[type="file"] {
+        input[type="file"], input[type="submit"] {
             background-color: #ffffff; 
             padding: 5px;
             border-radius: 6px;
+            width: 100%; 
+            max-width: 400px; 
+            box-sizing: border-box;
+            margin-top: 10px; /* Add margin to separate buttons */
         }
-
         input[type="file"]::file-selector-button {
             background-color: #eb9c64; 
             color: #353535;
@@ -25,24 +28,26 @@
         input[type="file"]::file-selector-button:hover {
             background-color: #e99356 !important; 
         }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
     </style>
 </head>
 <body>
     <div class="main-page">
         <div><h1>PredicX - The platform to predict machine failures and increase productivity by X times!</h1></div>
-        <div>
-            <form class="mb-3" action="/train" method="post" enctype="multipart/form-data">
-                <label for="exampleFormControlInput1" class="form-label">Upload CSV file for machine data to train the model</label>
+        <div class="form-body">
+            <form action="/train" method="post" enctype="multipart/form-data">
+                <label for="exampleFormControlInput1" class="form-label">Upload CSV file for machine data to train the model<br/>(csv file should be of the format as given in sample.csv)</label>
                 <input type="file" name="file" class="form-control" id="exampleFormControlInput1">
                 <input type="submit" class="btn btn-primary" value="Upload file"></input>
             </form>
+            <div class="sample"><a href="https://www.kaggle.com/datasets/shivamb/machine-predictive-maintenance-classification?select=predictive_maintenance.csv" target="_blank"><button class="btn btn-primary">Sample.csv</button></a></div>
         </div>
     </div>
-    
-    
 </body>
 </html>
-
-
-
-
